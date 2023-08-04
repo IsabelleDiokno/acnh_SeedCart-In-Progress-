@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/img_18"
+    >
+
+    <LinearLayout
+android:orientation="horizontal"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="60dp"
+android:weightSum="3"
+    >
+
+        <TextView
+            android:id="@+id/tv_header11"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="serif"
+            android:text="QTY"
+            android:textColor="#F9B52C"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:weightSum="1" />
+
+        <TextView
+            android:id="@+id/tv_header21"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="serif"
+            android:text="Price"
+            android:textColor="#F9B52C"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:weightSum="1" />
+
+        <TextView
+            android:id="@+id/tv_header31"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="serif"
+            android:text="SubTot"
+            android:textColor="#F9B52C"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:weightSum="1" />
+<!--        style="?android:attr/borderlessButtonStyle"-->
+        />
+
+
+</LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:weightSum="4"
+        >
+
+        <Button
+            android:id="@+id/btn_orgseeds"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:linksClickable="false"
+            android:text="Orange Seeds"
+            android:textColor="#F9B52C"
+            android:textSize="8sp"
+            app:backgroundTint="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_cappqty"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:text="@string/start_qty"
+            android:textColor="#F9B52C"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_capppr"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:text="2.50"
+            android:textColor="#F9B52C"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_cappst"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:text="@string/start_st"
+            android:textColor="#F9B52C"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:weightSum="4">
+
+        <Button
+            android:id="@+id/btn_turseeds"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:linksClickable="false"
+            android:text="Turnip Seeds"
+            android:textColor="#F9B52C"
+            android:textSize="8sp"
+            app:backgroundTint="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_espqty"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:text="@string/start_qty"
+            android:textColor="#F9B52C"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_esppr"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:text="1.00"
+            android:textColor="#F9B52C"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_espst"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:text="@string/start_st"
+            android:textColor="#F9B52C"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:weightSum="4">
+
+        <Button
+            android:id="@+id/btn_pchSeeds"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:linksClickable="false"
+            android:text="Peach Seeds"
+            android:textColor="#F9B52C"
+            android:textSize="8sp"
+            app:backgroundTint="@color/white" />
+        <TextView
+            android:id="@+id/tv_latteqty"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="@string/start_qty"
+            android:textColor="#F9B52C"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_lattepr"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:text="3.50"
+            android:textSize="16sp"
+            android:textColor="#F9B52C"
+            android:fontFamily="serif"
+            android:layout_weight="1"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_lattest"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:text="@string/start_st"
+            android:layout_weight="1"
+            android:textColor="#F9B52C"
+            android:fontFamily="serif"
+            android:textStyle="bold"
+                                     />
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/btn_pay"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:linksClickable="false"
+            android:text="Pay"
+            android:fontFamily="serif"
+            android:textColor="#F1F0EF"
+            android:textSize="10sp"
+            app:backgroundTint="#4CAF50" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:weightSum="1"
+        >
+
+        <TextView
+            android:id="@+id/tv_stotal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:text="Subtotal: 0.00"
+            android:fontFamily="serif"
+            android:textColor="#F9B52C"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:weightSum="1"
+        >
+
+        <TextView
+            android:id="@+id/tv_salestx"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:text="Sales Tax: 0.00"
+            android:textColor="#F9B52C"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:weightSum="1"
+        >
+
+        <TextView
+            android:id="@+id/tv_gtotal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:fontFamily="serif"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:text="Grand Total: 0.00"
+            android:textColor="#F9B52C"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

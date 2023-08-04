@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/img_20"
+    >
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:weightSum="1"
+        >
+
+
+        <TextView
+            android:id="@+id/tv_demoWarning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="WARNING: DEMO MODE"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#F8F5F5"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:weightSum="2"
+        >
+        <Button
+            android:id="@+id/btn_loyalty"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:fontFamily="serif"
+            android:text="Loyalty"
+            app:backgroundTint="#E47B73" />
+
+        <Switch
+            android:id="@+id/sw_safMode"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="5dp"
+
+            android:layout_weight="1"
+            android:checked="true"
+            android:fontFamily="serif"
+            android:text="Offline/Online Mode"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#F4F2EF"
+            android:textOff="OFFLINE"
+            android:textOn="ONLINE" />
+
+
+    </LinearLayout>
+    <LinearLayout
+android:orientation="horizontal"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="10dp"
+android:weightSum="3"
+    >
+
+        <Button
+            android:id="@+id/btn_voidTrans"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:fontFamily="serif"
+            android:text="Void"
+            app:backgroundTint="#E6AE5B" />
+
+        <Button
+            android:id="@+id/btn_refundTrans"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:fontFamily="serif"
+            android:text="Refund"
+            app:backgroundTint="#E6AE5B" />
+
+        <Button
+            android:id="@+id/btn_tran_sale"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:backgroundTint="#E6AE5B"
+            android:fontFamily="serif"
+            android:onClick="processSale"
+            android:text="Sale"
+            app:backgroundTint="#E6AE5B" />
+
+</LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:weightSum="3"
+        >
+
+        <Button
+            android:id="@+id/btn_report"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:fontFamily="serif"
+            android:text="Report"
+            app:backgroundTint="#E6AE5B" />
+
+        <Button
+            android:id="@+id/btn_lookUp"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:fontFamily="serif"
+            android:onClick="lookUp"
+            android:text="Look Up"
+            app:backgroundTint="#E6AE5B" />
+
+        <Button
+            android:id="@+id/btn_clBatch"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:fontFamily="serif"
+            android:text="Batch"
+            app:backgroundTint="#E6AE5B" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:weightSum="1"
+        >
+
+        <TextView
+            android:id="@+id/tv_appNm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:text="App Name"
+            android:textColor="#F5F6F2"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        android:layout_marginTop="350dp"
+        android:weightSum="1"
+        >
+
+        <TextView
+            android:id="@+id/tv_serialNm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:text="SN"
+            android:textColor="#FDFDFB"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:weightSum="1"
+        >
+
+        <TextView
+            android:id="@+id/tv_model"
+            android:layout_width="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:text="@string/model_name"
+            android:textColor="#F9FAF8"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:weightSum="1"
+        >
+
+        <TextView
+            android:id="@+id/tv_osVersion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:text="@string/os_version"
+            android:textColor="#FEFFFB" />
+
+    </LinearLayout>
+</LinearLayout>

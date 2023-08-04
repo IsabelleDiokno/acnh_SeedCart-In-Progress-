@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/result"
+    >
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:text="Please enter the RefNum"
+            android:textColor="#E3AE9E"
+            android:textSize="24sp" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:weightSum="1"
+        >
+
+
+        <EditText
+            android:id="@+id/et_ref"
+            android:layout_width="156dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="40dp"
+
+            android:background="#6DE3AE9E"
+            android:ems="10"
+            android:inputType="number" />
+
+<!--        <EditText
+            android:id="@+id/et_ecr"
+            android:layout_width="167dp"
+            android:layout_height="48dp"
+            android:background="#DDDADA"
+            android:ems="10"
+            android:hint="Enter ECR Ref"
+            android:inputType="number"
+            android:text=" "
+            android:textColor="#1B1818" />-->
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="208dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginEnd="47dp"
+            android:layout_marginRight="47dp"
+            android:layout_marginBottom="403dp"
+            android:fontFamily="cursive"
+            android:text="Search"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="#E3AE9E" />
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:weightSum="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_lookupRes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </ScrollView>
+
+    </LinearLayout>
+    </LinearLayout>

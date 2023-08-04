@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">TestCoffee</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="cappacino">Cappacino</string>
+    <string name="espresso">Espresso</string>
+    <string name="tea">Tea</string>
+    <string name="cafe_con_leche">Cafe con Leche</string>
+    <string name="pay">Pay</string>
+    <string name="cappucino">Cappucino</string>
+    <string name="sale">Sale</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="making_sale">Making sale</string>
+    <string name="choose_wisely">Choose Wisely :)</string>
+    <string name="start_qty">0</string>
+    <string name="start_st">0.00</string>
+    <string name="latte">Latte</string>
+    <string name="tea_pr">2.00</string>
+    <string name="os_version">OS Version</string>
+    <string name="model_name">Model Name</string>
+</resources>
