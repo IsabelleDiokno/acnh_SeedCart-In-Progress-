@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: C (5)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/common_lib/jsch-0.1.54.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

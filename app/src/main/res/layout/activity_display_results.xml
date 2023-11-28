@@ -5,17 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/result"
     tools:context=".displayResultsActivity">
 
 
     <ScrollView
+        android:id="@+id/sv_scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="323dp">
 
         <TextView
             android:id="@+id/tv_results"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:background="#6DE8E0E0"
+            android:text="TextView"
+            android:textColor="#95100F0F" />
     </ScrollView>
+
+    <Button
+        android:id="@+id/btn_okay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Okay"
+        android:textColor="#8BC34A" />
+
+
+
+
 </LinearLayout>

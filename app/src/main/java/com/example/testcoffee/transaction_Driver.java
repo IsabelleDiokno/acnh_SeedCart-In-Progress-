@@ -256,6 +256,12 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
                 System.out.println("");
                 System.out.println("=======Close Batch Success============");
                 setStatus("good");
+                stringResults = transDateTime + "\n" + "Batch #: "+ executionResult.response().hostInformation().batchNumber() + "\n" + "TID: "+ executionResult.response().tid() + "\n" +
+                        "MID: "+ executionResult.response().mid() + "\n" + "===Transaction Count===: " + "\n" +
+                        "Credit: "+ executionResult.response().totalCount().creditCount() + "\n" + "Debit: "+ executionResult.response().totalCount().debitCount() + "\n" + "Host Resp: "+ hostResponse + "\n" +
+                        "EBT: "+ executionResult.response().totalCount().ebtCount() + "\n" + "Gift: "+ executionResult.response().totalCount().giftCount() + "\n" + "Card Name: "+ nameCard + "\n" +
+                        "Entry Mode: "+ entryMode + "\n" + " TC: " + TC + "\n" + "TVR: "+ TVR + "\n" +  "AID: " + AID + "\n" + "TSI: " + TSI + "\n" +
+                        "ATC: " + ATC + "\n" + "App Label: " + appLabel + "\n" + "CVM: " +CVM;
 
             }
             else if (!executionResult.isSuccessful()){
@@ -435,10 +441,10 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
                 nameCard = response.accountInformation().cardHolder();
                 entryMode = String.valueOf(response.accountInformation().entryMode());
 
-                stringResults = transDateTime + "/n" + "Account Number: "+ acctNm + "/n" + "Card Type: "+ cardType + "/n" +
-                        "Trans Type: "+ transType + "/n" + "Approved Amt: "+ apprvdamt + "/n" +
-                        "Auth Code: "+ authCode + "/n" + "Host Code: "+ hostCode + "/n" + "Host Resp: "+ hostResponse + "/n" +
-                        "Host Message: "+ hostMessage + "/n" + "Ref Num: "+ refNum + "/n" + "Card Name: "+ nameCard + "/n" +
+                stringResults = transDateTime + "\n" + "Account Number: "+ acctNm + "\n" + "Card Type: "+ cardType + "\n" +
+                        "Trans Type: "+ transType + "\n" + "Approved Amt: "+ apprvdamt + "\n" +
+                        "Auth Code: "+ authCode + "\n" + "Host Code: "+ hostCode + "\n" + "Host Resp: "+ hostResponse + "\n" +
+                        "Host Message: "+ hostMessage + "\n" + "Ref Num: "+ refNum + "\n" + "Card Name: "+ nameCard + "\n" +
                         "Entry Mode: "+entryMode;
 
                 System.out.println("=======Payment success==========");
@@ -460,7 +466,8 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
 
                 //displayTransResults(1,1);
             }
-            displayTransResults(1,2);
+            //displayTransResults(1,2);
+            displayTransResults();
 
 //          runOnUiThread(()-> {
 //          //Update UI stuff here
@@ -523,7 +530,12 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
               System.out.println("========PAYMENT RESULT CODE ==== : "+hostMessage);
               System.out.println("PAYMENT REF 1: "+refNum);
               System.out.println("PAYMENT ECR 1: "+ecrRef);
-              //displayTransResults(); //USE ME UNTIL FB STOPS OVERRIDING SALES
+              stringResults = transDateTime + "\n" + "Account Number: "+ acctNm + "\n" + "Card Type: "+ cardType + "\n" +
+                      "Trans Type: "+ transType + "\n" + "Approved Amt: "+ apprvdamt + "\n" +
+                      "Auth Code: "+ authCode + "\n" + "Host Code: "+ hostCode + "\n" + "Host Resp: "+ hostResponse + "\n" +
+                      "Host Message: "+ hostMessage + "\n" + "Ref Num: "+ refNum + "\n" + "Card Name: "+ nameCard + "\n" +
+                      "Entry Mode: "+ entryMode + "\n" + " TC: " + TC + "\n" + "TVR: "+ TVR + "\n" +  "AID: " + AID + "\n" + "TSI: " + TSI + "\n" +
+                      "ATC: " + ATC + "\n" + "App Label: " + appLabel + "\n" + "CVM: " +CVM;
           }
           else if (!executionResult.isSuccessful()){
               setSuccess(false);
@@ -533,13 +545,19 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
               AIP = response.paymentEmvTag().aip();
               AVN = response.paymentEmvTag().avn();
               IAUTHD = response.paymentEmvTag().issuerAuthData();
-              //displayTransResults();
+              stringResults = transDateTime + "\n" + "Account Number: "+ acctNm + "\n" + "Card Type: "+ cardType + "\n" +
+                      "Trans Type: "+ transType + "\n" + "Approved Amt: "+ apprvdamt + "\n" +
+                      "Auth Code: "+ authCode + "\n" + "Host Code: "+ hostCode + "\n" + "Host Resp: "+ hostResponse + "\n" +
+                      "Host Message: "+ hostMessage + "\n" + "Ref Num: "+ refNum + "\n" + "Card Name: "+ nameCard + "\n" +
+                      "Entry Mode: "+ entryMode + "\n" + " AC: " + AC + "\n" + "AIP: "+ AIP + "\n" +  "AVN: " + AVN + "\n" + "IAUTHHD: " + IAUTHD;
           }
-          displayTransResults(1,1);
+          //displayTransResults(1,1);
+          displayTransResults();
 //          runOnUiThread(()-> {
 //          //Update UI stuff here
 //          });
       }).start();
+
 
     }
     public String genRandomECR(){
@@ -652,7 +670,7 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
     }*/
     public void safUpload(Terminal terminal){
         new Thread(()->{
-            System.out.println("Attempting a SAF Upload");
+            System.out.println("Performing SAF Upload");
 
             SafUploadReq safUploadReq = new SafUploadReq();
             safUploadReq.setSafIndicator(SafIndicator.NEW_STORED_TRANSACTION_RECORDS);
@@ -699,12 +717,20 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
             System.out.println("Visa Amt: "+executionResult.response().cardTotalAmount().visaAmount());
             System.out.println("MC Cnt: "+executionResult.response().cardTotalCount().masterCardCount());
             System.out.println("MC Amt: "+executionResult.response().cardTotalAmount().masterCardAmount());
+
+            stringResults = "SAF Report Results" + "\n" +"Amex Cnt:" + "\n" + executionResult.response().cardTotalCount().amexCount() + "Amex Amt: " +
+                    executionResult.response().cardTotalAmount().amexAmount()+ "\n" + "Disc Cnt: "+ executionResult.response().cardTotalCount().discoverCount() +"\n" +
+                    "Disc Amt: "+executionResult.response().cardTotalAmount().discoverAmount() + "\n" + "Visa Cnt: " + executionResult.response().cardTotalCount().visaCount() + "\n" +
+                    "Visa Amt: "+executionResult.response().cardTotalAmount().visaAmount() + "\n" + "MC Cnt: "+executionResult.response().cardTotalCount().masterCardCount() + "\n" +
+                    "MC Amt: "+executionResult.response().cardTotalAmount().masterCardAmount();
             setStatus("good");
+
         }
         else if(!executionResult.isSuccessful()){
             System.out.println("Saf summary report uncompleted; FAIL");
             setStatus("bad");
         }
+        displayTransResults();
     }
     public void setSafMode(Terminal terminal, Integer mode){
         //new Thread(() -> {
@@ -871,23 +897,6 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
                         System.out.println("TEST: "+transDateTime);
 
 
-                        //lookUpActivity.tv_lookupRes.setText(stringResults);
-                        /*Intent intent = new Intent(transaction_Driver.this, displayResultsActivity.class);
-                        intent.putExtra(EXTRA_NAME, stringResults);*/
-                        /////////
-                        System.out.println("A"+ "/n");
-                        //getActivity().startActivity(new Intent(activity.getApplicationContext(), displayResultsActivity.class));
-                        System.out.println("TEST2:"+stringResults);
-                        results = new Intent(activity.getApplicationContext(), displayResultsActivity.class);
-                        results.putExtra(EXTRA_RESULTS,stringResults);
-                        System.out.println("b" + "/n");
-                        activity.startActivity(results);
-//                        //startActivity(activity.getApplicationContext(), results,results.getBundleExtra(EXTRA_RESULTS));
-                        //startActivity(activity.getApplicationContext(), results, results.getBundleExtra("EXTRA_NAME"));
-                        System.out.println("d" + "/n");
-
-                        //lookUpActivity.tv_lookupRes.setText(stringResults);
-
                     } //Make sure activity exists
                     else{
                         System.out.println("Checkpoint POST EXECUTE FAILED");
@@ -963,11 +972,14 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
         System.out.println("Activity does NOT exist");
         return false;
     }
-    public void displayTransResults(int resultFormat, int transType){
+    /*public void displayTransResults(int resultFormat, int transType){
+       Intent results;
+       MainActivity activity = activityWeakReference.get();
+
         switch(resultFormat){
             case 1:
              //SALE or LOOKUP
-                System.out.println("Transaction Date/Time: "+transDateTime); //missing with LOOKUP
+*//*                System.out.println("Transaction Date/Time: "+transDateTime); //missing with LOOKUP
 
                 System.out.println("Acct Num: "+acctNm);
                 System.out.println("Card Type: "+cardType);
@@ -980,6 +992,8 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
                 System.out.println("Ref Num: "+refNum);
                    //Need Transaction Num
                 System.out.println("Cardholders Name: "+nameCard);
+
+
                 if (transType == 1 && getSuccess()){
                    System.out.println("TC: "+TC);
                    System.out.println("TVR: "+TVR);
@@ -993,7 +1007,17 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
                   System.out.println("AIP: "+AIP);
                   System.out.println("AVN: "+AVN);
                         System.out.println("IAUTHD: "+IAUTHD);
-                }
+                }*//*
+                System.out.println("A"+ "/n");
+                //getActivity().startActivity(new Intent(activity.getApplicationContext(), displayResultsActivity.class));
+                System.out.println("TEST2:"+stringResults);
+                results = new Intent(activity.getApplicationContext(), displayResultsActivity.class);
+                results.putExtra(EXTRA_RESULTS,stringResults);
+                System.out.println("b" + "/n");
+                activity.startActivity(results);
+//                        //startActivity(activity.getApplicationContext(), results,results.getBundleExtra(EXTRA_RESULTS));
+                //startActivity(activity.getApplicationContext(), results, results.getBundleExtra("EXTRA_NAME"));
+                System.out.println("d" + "/n");
                 break;
             case 2:
             //BATCH CLOSE
@@ -1011,6 +1035,80 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
             default:
                break;
         }
+
+    }*/
+    public void displayTransResults(){
+        Intent results;
+        MainActivity activity = activityWeakReference.get();
+        System.out.println("A"+ "/n");
+        //getActivity().startActivity(new Intent(activity.getApplicationContext(), displayResultsActivity.class));
+        System.out.println("TEST2:"+stringResults);
+        results = new Intent(activity.getApplicationContext(), displayResultsActivity.class);
+        results.putExtra(EXTRA_RESULTS,stringResults);
+        System.out.println("b" + "/n");
+        activity.startActivity(results);
+//                        //startActivity(activity.getApplicationContext(), results,results.getBundleExtra(EXTRA_RESULTS));
+        //startActivity(activity.getApplicationContext(), results, results.getBundleExtra("EXTRA_NAME"));
+        System.out.println("d" + "/n");
+        /*switch(resultFormat){
+            case 1:
+                //SALE or LOOKUP
+*//*                System.out.println("Transaction Date/Time: "+transDateTime); //missing with LOOKUP
+
+                System.out.println("Acct Num: "+acctNm);
+                System.out.println("Card Type: "+cardType);
+                System.out.println("Trans Type: "+ transType); //MISSING WITH LOOKUP
+                System.out.println("Approved Amount: "+apprvdamt);
+                System.out.println("authCode: "+authCode);
+                System.out.println("Host Code: "+hostCode);
+                System.out.println("Host Response: "+hostResponse);
+                System.out.println("Host Message: "+hostMessage);
+                System.out.println("Ref Num: "+refNum);
+                   //Need Transaction Num
+                System.out.println("Cardholders Name: "+nameCard);
+
+
+                if (transType == 1 && getSuccess()){
+                   System.out.println("TC: "+TC);
+                   System.out.println("TVR: "+TVR);
+                   System.out.println("AID: "+AID);
+                   System.out.println("TSI: "+TSI);
+                   System.out.println("ATC: "+ATC);
+                   System.out.println("App Label: "+appLabel);
+                   System.out.println("CVM: "+CVM);
+                }
+                else if (transType==1 && !getSuccess()){
+                  System.out.println("AIP: "+AIP);
+                  System.out.println("AVN: "+AVN);
+                        System.out.println("IAUTHD: "+IAUTHD);
+                }*//*
+                System.out.println("A"+ "/n");
+                //getActivity().startActivity(new Intent(activity.getApplicationContext(), displayResultsActivity.class));
+                System.out.println("TEST2:"+stringResults);
+                results = new Intent(activity.getApplicationContext(), displayResultsActivity.class);
+                results.putExtra(EXTRA_RESULTS,stringResults);
+                System.out.println("b" + "/n");
+                activity.startActivity(results);
+//                        //startActivity(activity.getApplicationContext(), results,results.getBundleExtra(EXTRA_RESULTS));
+                //startActivity(activity.getApplicationContext(), results, results.getBundleExtra("EXTRA_NAME"));
+                System.out.println("d" + "/n");
+                break;
+            case 2:
+                //BATCH CLOSE
+
+
+                break;
+            case 4:
+                //REFUND
+
+                break;
+            case 5:
+                //VOID
+
+                break;
+            default:
+                break;
+        }*/
 
     }
     public void tagReader(int tag, String extData){

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: C (9)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/common_lib/PaxLog_1.0.11_20220921.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

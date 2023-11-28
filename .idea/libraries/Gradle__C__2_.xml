@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: C (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/android/POSLink_Core_Android_V2.00.01_20230112.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
