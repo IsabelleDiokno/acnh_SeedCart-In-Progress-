@@ -7,10 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -22,9 +20,9 @@ public class activity_lookUp extends AppCompatActivity {
     ScrollView scrollView;
     TextView tv_lookupRes;
     EditText et_ecr, et_ref;
-    Button btn_back, btn_search;
-    RecyclerView.Adapter transactionAdapter;
-    DatabaseHelper databaseHelper;
+    Button btn_search, btn_cancel;
+    //RecyclerView.Adapter transactionAdapter;
+   // DatabaseHelper databaseHelper;
     int searchECR, searchREF;
 
     ArrayList everything;
@@ -35,22 +33,15 @@ public class activity_lookUp extends AppCompatActivity {
         setContentView(R.layout.activity_look_up);
 
         //Buttons, textviews and recylcerview
-        //btn_back = findViewById(R.id.btn_back);
+        btn_cancel = findViewById(R.id.btn_cancelsearch);
         btn_search = findViewById(R.id.btn_search);
-        //et_ecr = findViewById(R.id.et_ecr);
         et_ref = findViewById(R.id.et_ref);
-        scrollView = findViewById(R.id.scrollView);
-        tv_lookupRes = findViewById(R.id.tv_lookupRes);
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { // gets called when clicked
 
-                //String stringECR = et_ecr.getText().toString();
                 String stringREF = et_ref.getText().toString();
-
-                //searchECR = Integer.parseInt(stringECR);
                 searchREF = Integer.parseInt(stringREF);
-
                 //Change later when fixing UI
                 Intent data = new Intent();
                 //data.putExtra("ECR", searchECR);
@@ -58,14 +49,23 @@ public class activity_lookUp extends AppCompatActivity {
                 setResult(RESULT_OK, data);
                 // setResult(RESULT_CODE,data);
                 finish();
-
             }
         });
-
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cancelButtonClicked(view);
+            }
+        });
+    }
+    public void cancelButtonClicked(View v){
+        System.out.println("Cancelling Transaction");
+        Intent data = new Intent();
+        setResult(RESULT_CANCELED, data);
+        finish();
+    }
 //        databaseHelper = new DatabaseHelper(activity_lookUp.this);
 //        //Creating data source
-//
-//
 //        ArrayAdapter  transactionArrayAdapter = new ArrayAdapter<transactionModel>(activity_lookUp.this,
 //                android.R.layout.simple_list_item_1, everything);
 //
@@ -75,13 +75,6 @@ public class activity_lookUp extends AppCompatActivity {
         //Get all items from database
 
        // showTransactionListView(databaseHelper);
-
-
-
-
-
-
-    }
 //    public void showTransactionListView(DatabaseHelper dbh){
 //
 //        transactionAdapter = new RecyclerView.Adapter<transactionModel>(activity_lookUp.this, android.R.layout.simple_list_item_1, dbh.getEverything());

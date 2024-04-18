@@ -18,7 +18,7 @@ public class voidActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_void);
         btn_voidTrans = findViewById(R.id.btn_voidTrans);
-        btn_cancel = findViewById(R.id.btn_cancel);
+        btn_cancel = findViewById(R.id.btn_cancelvoid);
         et_ecrVd = findViewById(R.id.et_ecrVd);
 
         btn_voidTrans.setOnClickListener(new View.OnClickListener() {
@@ -62,15 +62,10 @@ public class voidActivity extends AppCompatActivity {
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { // gets called when clicked
-
-
-                //Change later when fixing UI
                 Intent data = new Intent();
-                setResult(RESULT_OK, data);
-                // setResult(RESULT_CODE,data);
+                setResult(RESULT_CANCELED, data);
                 finish();
             }
         });
     }
-
 }

@@ -254,65 +254,74 @@ public class MainActivity extends AppCompatActivity{
     }*/
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        System.out.println("Getting RESULTS NOWW ------ ");
-        super.onActivityResult(requestCode, resultCode, data);
-        Bundle bundle = data.getExtras();
-        Context context = getApplicationContext();
-        transaction_Driver td = new transaction_Driver(this,context);
-
-        switch(requestCode){
-            case 1:
-                //SALE
-                System.out.println("REQUEST CODE: "+requestCode);
-                System.out.println("RESULT CODE: "+resultCode);
-                String total = bundle.getString("grandTotal");
-                System.out.println("Got sale total results: "+total);
-                //Create a new transaction driver class
-                double doublet = Double.parseDouble(total)*100;
-                int t =(int) doublet ;
-                td.execute(1,t); //execute the PaymentEngine thread
-
-                break;
-            case 2:
-                //LOOKUP
-                System.out.println("REQUEST CODE: "+requestCode);
-                System.out.println("RESULT CODE: "+resultCode);
-                //int ecr = bundle.getInt("ECR");
-                int ref = bundle.getInt("REF");
-                System.out.println("Got ECR: "+" REF: "+ref);
-                //endLookUp(ecr, ref);
-                //Create a new transaction driver class
-                td = new transaction_Driver(this,context);
+        try {
+            super.onActivityResult(requestCode, resultCode, data);
+            Bundle bundle = data.getExtras();
+            Context context = getApplicationContext();
+            //Create Instance of Transaction Driver class
+            transaction_Driver td = new transaction_Driver(this,context);
+            if (resultCode == Activity.RESULT_OK){
+                switch(requestCode){
+                    case 1:
+                        //SALE
+                        System.out.println("REQUEST CODE: "+requestCode);
+                        System.out.println("RESULT CODE: "+resultCode);
+                        if(!bundle.getString("grandTotal").isEmpty()){
+                            String total = bundle.getString("grandTotal");
+                            double doublet = Double.parseDouble(total)*100;
+                            int t =(int) doublet ;
+                            System.out.println("Got sale total results: "+total);
+                            td.execute(1,t); //execute the PaymentEngine thread
+                        }
+                        break;
+                    case 2:
+                        //LOOKUP
+                        System.out.println("REQUEST CODE: "+requestCode);
+                        System.out.println("RESULT CODE: "+resultCode);
+                        //int ecr = bundle.getInt("ECR");
+                        int ref = bundle.getInt("REF");
+                        System.out.println("Got ECR: "+" REF: "+ref);
+                        //endLookUp(ecr, ref);
+                        //Create a new transaction driver class
+                        td = new transaction_Driver(this,context);
 //                int e = ecr;
 //                int r = ref;
-                //td.execute(2, e, ref); //execute the transaction driver thread
-                td.execute(2, ref); //execute the transaction driver thread
+                        //td.execute(2, e, ref); //execute the transaction driver thread
+                        td.execute(2, ref); //execute the transaction driver thread
 
-                break;
-            case 4:
-                //REFUND
-                System.out.println("REQUEST CODE: "+requestCode);
-                System.out.println("RESULT CODE: "+resultCode);
-                String rAmount = bundle.getString("refundAmt");
-                System.out.println("Got REFUND AMOUNT: "+rAmount);
-                System.out.print("Working with transaction driver to fin REFUND -----");
-                //transaction_Driver td = new transaction_Driver(this,context);
-                double refundD = Double.parseDouble(rAmount)*100;
-                int rt = (int) refundD;
-                td.execute(4,rt);
-                break;
-            case 5:
-                //VOID
-                System.out.println("REQUEST CODE: "+requestCode);
-                System.out.println("RESULT CODE: "+resultCode);
-                int ecrV =  bundle.getInt("voidECR");
-                System.out.print("Working with transaction driver to fin VOID -----");
-                //Create a new transaction driver class
-                td.execute(5,ecrV);
-                break;
-            default:
-                break;
+                        break;
+                    case 4:
+                        //REFUND
+                        System.out.println("REQUEST CODE: "+requestCode);
+                        System.out.println("RESULT CODE: "+resultCode);
+                        String rAmount = bundle.getString("refundAmt");
+                        System.out.println("Got REFUND AMOUNT: "+rAmount);
+                        System.out.print("Working with transaction driver to fin REFUND -----");
+                        //transaction_Driver td = new transaction_Driver(this,context);
+                        double refundD = Double.parseDouble(rAmount)*100;
+                        int rt = (int) refundD;
+                        td.execute(4,rt);
+                        break;
+                    case 5:
+                        //VOID
+                        System.out.println("REQUEST CODE: "+requestCode);
+                        System.out.println("RESULT CODE: "+resultCode);
+                        int ecrV =  bundle.getInt("voidECR");
+                        System.out.print("Working with transaction driver to fin VOID -----");
+                        //Create a new transaction driver class
+                        td.execute(5,ecrV);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception");
         }
+
+
+
+
 
     }
     public boolean onCreateOptionsMenu(Menu menu) {

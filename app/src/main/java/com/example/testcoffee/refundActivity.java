@@ -14,7 +14,7 @@ public class refundActivity extends AppCompatActivity {
     private static DecimalFormat df2 = new DecimalFormat("#.##");
     TextView tv_espqty, tv_cappqty, tv_latteqty
             , tv_stotal, tv_saletx, tv_gtotal, tv_cappst, tv_espst, tv_lattest;
-    Button btn_capp, btn_esp, btn_latte, btn_rfnd;
+    Button btn_capp, btn_esp, btn_latte, btn_rfnd, btn_cancel;
     int capp_qty =0;
     int esp_qty = 0;
     int latte_qty = 0;
@@ -35,6 +35,7 @@ public class refundActivity extends AppCompatActivity {
         btn_esp = findViewById(R.id.btn_turseeds);
         btn_latte = findViewById(R.id.btn_pchSeeds);
         btn_rfnd = findViewById(R.id.btn_rfnd);
+        btn_cancel = findViewById(R.id.btn_cancelrefund);
         tv_espqty = findViewById(R.id.tv_espqty);
         tv_cappqty = findViewById(R.id.tv_cappqty);
         tv_latteqty = findViewById(R.id.tv_latteqty);
@@ -49,8 +50,14 @@ public class refundActivity extends AppCompatActivity {
         btn_rfnd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                System.out.println("----- 11111Pay button clicked sending grand total");
+                System.out.println("Pay button clicked sending grand total");
                 payButtonClicked(view);
+            }
+        });
+        btn_cancel.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                cancelButtonClicked(view);
             }
         });
         btn_capp.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +88,12 @@ public class refundActivity extends AppCompatActivity {
         data.putExtra("refundAmt", refundAmount);
         setResult(RESULT_OK, data);
        // setResult(RESULT_CODE,data);
+        finish();
+    }
+    public void cancelButtonClicked(View v){
+        System.out.println("Cancelling Transaction");
+        Intent data = new Intent();
+        setResult(RESULT_CANCELED, data);
         finish();
     }
     public String reformat(double d){

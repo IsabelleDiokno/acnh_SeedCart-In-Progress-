@@ -45,7 +45,7 @@ android:weightSum="3"
             android:id="@+id/tv_header31"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="30dp"
             android:fontFamily="serif"
             android:text="SubTot"
@@ -238,7 +238,19 @@ android:weightSum="3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:weightSum="1">
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn_cancelpay"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:linksClickable="false"
+            android:text="Cancel"
+            android:textColor="#F1F0EF"
+            android:textSize="10sp"
+            app:backgroundTint="#F44336" />
 
         <Button
             android:id="@+id/btn_pay"

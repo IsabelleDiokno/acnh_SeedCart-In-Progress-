@@ -1,7 +1,6 @@
 package com.example.testcoffee;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +15,7 @@ public class saleActivity extends AppCompatActivity {
     private static DecimalFormat df2 = new DecimalFormat("#.##");
     TextView tv_espqty, tv_cappqty, tv_latteqty
             , tv_stotal, tv_saletx, tv_gtotal, tv_cappst, tv_espst, tv_lattest;
-    Button btn_capp, btn_esp, btn_latte, btn_pay;
+    Button btn_capp, btn_esp, btn_latte, btn_pay, btn_cancel;
     int capp_qty =0;
     int esp_qty = 0;
     int latte_qty = 0;
@@ -47,13 +46,20 @@ public class saleActivity extends AppCompatActivity {
         tv_cappst = findViewById(R.id.tv_cappst);
         tv_espst = findViewById(R.id.tv_espst);
         tv_lattest = findViewById(R.id.tv_lattest);
-        btn_pay= findViewById(R.id.btn_pay);
+        btn_pay = findViewById(R.id.btn_pay);
+        btn_cancel = findViewById(R.id.btn_cancelpay);
 
         //Set a listeners for menu items
         btn_pay.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                payButtonClicked(view);
+            }
+        });
+        btn_cancel.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                cancelpayButtonClicked(view);
             }
         });
         btn_capp.setOnClickListener(new View.OnClickListener() {
@@ -110,8 +116,13 @@ public class saleActivity extends AppCompatActivity {
        // setResult(RESULT_CODE,data);
         finish();
     }
+    public void cancelpayButtonClicked(View v){
+        System.out.println("Cancelling Transaction");
+        Intent data = new Intent();
+        setResult(RESULT_CANCELED, data);
+        finish();
+    }
     public String reformat(double d){
-
         String f = df2.format(d);
         return f;
     }

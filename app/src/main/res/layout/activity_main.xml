@@ -51,7 +51,7 @@
         <Switch
             android:id="@+id/sw_safMode"
             android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_height="63dp"
             android:layout_marginLeft="5dp"
 
             android:layout_weight="1"
@@ -180,7 +180,7 @@
         <TextView
             android:id="@+id/tv_serialNm"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="41dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:fontFamily="serif"
@@ -192,7 +192,7 @@
         <TextView
             android:id="@+id/tv_model"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="36dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:fontFamily="serif"
@@ -204,7 +204,7 @@
         <TextView
             android:id="@+id/tv_osVersion"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:fontFamily="serif"

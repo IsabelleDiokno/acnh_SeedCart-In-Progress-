@@ -136,51 +136,51 @@ public class transaction_Driver extends AsyncTask<Integer, Void, String> {
         Terminal terminal = setCommSetting();
         switch (typeTransaction){
             case 0:
-                System.out.println("Attempting to get app info");
-                //new Thread(()->{
+                //Get App Information to display on Main menu
                     getAppInfo(terminal);
-                    //getSafMode(terminal);
-                    //isDemoMode(terminal);//
-                    //setDemoMode(false);
-                    //getVar(terminal); //Use getVar method to see if in demo Mode
-               // }).start();
-
 
                 break;
             case 1:
+                //Sale Logic
                 System.out.println("Attempting to process sale");
-                if(type[1] != null){
-                    processPayment(terminal, type[1]);
+                if(type[1] != null){ //Check the sale amount is not null
+                    processPayment(terminal, type[1]); //Pass the sale amount
                 }
                 break;
             case 2:
-                System.out.println("Attempting to look up transaction based off ECR and REF numbers");
-                if(type[1] != null){
+                //Look up transaction
+                System.out.println("Attempting to look up transaction");
+                if(type[1] != null){ //Check reference number is valid
                    processLookUp(terminal, type[1]);
                 }
 
                 break;
 /*            case 3:
+               //Perform Report
                 System.out.println("Attempting to make up a report");
                 Terminal terminal3 = setCommSetting();
                 makeReport();
 
                 break;*/
             case 4:
+                //Refund
                 System.out.println("Attempting to process Refund");
-                if(type[1] != null){
+                if(type[1] != null){ //Check refund amount is valid
                     Terminal terminal4 = setCommSetting();
                     processRefund(terminal4, type[1]);
                 }
                 break;
             case 5:
+                //Void Transaction
                 System.out.println("Attempting to process Void");
-                if(type[1] != null){
-                    Terminal terminal5 = setCommSetting();
-                    processVoid(terminal5, type[1]);
+                new Thread(()->{
+                    if(type[1] != null){ //Check ref number is valid
+                        Terminal terminal5 = setCommSetting();//
+                        processVoid(terminal5, type[1]);
 
-                  // processLookUp(2,type[1], type[2]);
-                }
+                    }
+                }).start();
+
                 break;
             case 6:
                 System.out.println("Attempting to close batch");

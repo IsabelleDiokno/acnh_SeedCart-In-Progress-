@@ -237,7 +237,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:weightSum="1">
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn_cancelrefund"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:linksClickable="false"
+            android:text="Cancel"
+            android:textColor="#F1F0EF"
+            android:textSize="10sp"
+            app:backgroundTint="#F36B6B" />
 
         <Button
             android:id="@+id/btn_rfnd"
